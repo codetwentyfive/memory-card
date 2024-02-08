@@ -3,7 +3,7 @@ import json
 
 def get_file_names(folder_path):
     file_names = []
-    folder_name= "cropped/"
+    folder_name= "images/cropped/"
     for filename in os.listdir(folder_path):
         if filename.endswith(('.jpg', '.jpeg', '.png', '.gif')):
             name_without_extension = os.path.splitext(filename)[0]

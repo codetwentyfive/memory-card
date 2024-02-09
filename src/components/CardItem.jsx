@@ -1,14 +1,15 @@
 import React, { useState, useEffect } from "react";
 import "../styles/CardItem.css";
-import cardBackImage from '../../public/images/cardback.jpg'
+import cardBackImage from "../../public/images/cardback.jpg";
 
-const CardItem = ({ image, title }) => {
+const CardItem = ({ image, title, onClick  }) => {
   const [isLoading, setIsLoading] = useState(true);
   const [imgSrc, setImgSrc] = useState("");
-  const [isFlipped, setIsFlipped] = useState(true);
+  const [isFlipped, setIsFlipped] = useState(false);
 
   const handleCardClick = () => {
     setIsFlipped(!isFlipped);
+    onClick();
   };
 
   useEffect(() => {
@@ -36,8 +37,11 @@ const CardItem = ({ image, title }) => {
             alt={`Card of ${title}`}
           />
         )}
-        <img className="card-face back-face" src={cardBackImage} alt="Card Back">
-        </img>
+        <img
+          className="card-face back-face"
+          src={cardBackImage}
+          alt="Card Back"
+        ></img>
       </div>
     </div>
   );

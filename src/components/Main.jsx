@@ -2,14 +2,16 @@ import React, { useState, useEffect } from "react";
 import "../styles/index.css";
 import CardItem from "./CardItem";
 
-const Main = ({difficulty}) => {
+const Main = ({ difficulty, score, setScore }) => {
   const [cards, setCards] = useState([]);
+  const [clickedCards, setClickedCards] = useState([]);
 
   useEffect(() => {
     async function fetchCards() {
       const response = await fetch("/cards.json");
       const data = await response.json();
-      setCards(data);
+      const shuffledData = shuffleArray(data);
+      setCards(shuffledData);
     }
     fetchCards();
   }, []);
@@ -21,11 +23,6 @@ const Main = ({difficulty}) => {
     }
     return array;
   }
-
-  // Shuffle cards on component mount
-  useEffect(() => {
-    setCards((prevCards) => shuffleArray([...prevCards]));
-  }, []);
 
   // function to spawn cards based on difficulty
   function spawnCards(difficulty) {
@@ -45,10 +42,27 @@ const Main = ({difficulty}) => {
     }
     return cards.slice(0, numCards);
   }
+
+  //function to handle Card Click
+  const handleCardClick = (card) => {
+    if (clickedCards.includes(card.name)) {
+      //gameover when card is already been clicked
+      setScore(0);
+      setClickedCards([]);
+    } else {
+      setScore((prevScore) => prevScore + 1);
+      setClickedCards((prevClickedCards) => [...prevClickedCards, card.name]);
+    }
+  };
   return (
     <div className="main">
-      {spawnCards(difficulty).map((cards, index) => (
-        <CardItem key={index} image={cards.image} title={cards.name} />
+      {spawnCards(difficulty).map((card, index) => (
+        <CardItem
+          key={index}
+          image={card.image}
+          title={card.name}
+          onClick={() => handleCardClick(card)}
+        />
       ))}
     </div>
   );

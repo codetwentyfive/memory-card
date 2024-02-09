@@ -22,7 +22,7 @@ function App() {
         <DifficultyPopup onSelectDifficulty={handleSelectDifficulty} />
       )}
       {!showPopup && <Header score={score} highScore={highScore} />}
-      {!showPopup && <Main difficulty={difficulty} />}
+      {!showPopup && <Main difficulty={difficulty} score={score} setScore={setScore} />}
     </div>
   );
 }

@@ -1,20 +1,31 @@
 import { useEffect, useState } from "react";
-import "../styles/App.css";
+import DifficultyPopup from "./DifficultyPopup";
 import Header from "./Header";
 import Main from "./Main";
 import CardItem from "./CardItem";
+import "../styles/App.css";
 function App() {
   const [score, setScore] = useState(0);
   const [highScore, setHighScore] = useState(0);
   const [cards, setCards] = useState([]);
+  const [showPopup, setShowPopup] = useState(true);
+  const [difficulty, setDifficulty] = useState(null);
 
- 
+  const handleSelectDifficulty = (selectedDifficulty) => {
+    setDifficulty(selectedDifficulty);
+    setShowPopup(false);
+  };
+
   return (
     <div className="App">
-      <Header score={score} highScore={highScore} />
-      <Main cards={cards} />
+      {showPopup && (
+        <DifficultyPopup onSelectDifficulty={handleSelectDifficulty} />
+      )}
+      {!showPopup && <Header score={score} highScore={highScore} />}
+      {!showPopup && <Main difficulty={difficulty} />}
     </div>
   );
 }
+
 
 export default App;

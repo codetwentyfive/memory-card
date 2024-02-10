@@ -10,22 +10,13 @@ const Main = ({ difficulty, score, setScore }) => {
     async function fetchCards() {
       const response = await fetch("/cards.json");
       const data = await response.json();
-      const shuffledData = shuffleArray(data);
-      setCards(shuffledData);
+      setCards(data);
     }
     fetchCards();
   }, []);
 
-  function shuffleArray(array) {
-    for (let i = array.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      [array[i], array[j]] = [array[j], array[i]];
-    }
-    return array;
-  }
-
   // function to spawn cards based on difficulty
-  function spawnCards(difficulty) {
+  const selectCardsByDifficulty = (difficulty) => {
     let numCards = 0;
     switch (difficulty) {
       case "easy":
@@ -41,8 +32,27 @@ const Main = ({ difficulty, score, setScore }) => {
         numCards = 4;
     }
     return cards.slice(0, numCards);
-  }
+  };
 
+  useEffect(() => {
+    //shuffle the cards when the component mounts or when the score changes
+    shuffleCards();
+  }, [score]);
+
+  //function to shuffle the array of cards
+  const shuffleCards = () => {
+    setCards((prevCards) => {
+      const shuffledCards = [...prevCards];
+      for (let i = shuffledCards.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [shuffledCards[i], shuffledCards[j]] = [
+          shuffledCards[j],
+          shuffledCards[i],
+        ];
+      }
+      return shuffledCards;
+    });
+  };
   //function to handle Card Click
   const handleCardClick = (card) => {
     if (clickedCards.includes(card.name)) {
@@ -54,9 +64,13 @@ const Main = ({ difficulty, score, setScore }) => {
       setClickedCards((prevClickedCards) => [...prevClickedCards, card.name]);
     }
   };
+
+  //select the subset of cards based on the difficulty
+  const displayedCards = selectCardsByDifficulty(difficulty);
+
   return (
     <div className="main">
-      {spawnCards(difficulty).map((card, index) => (
+      {displayedCards.map((card, index) => (
         <CardItem
           key={index}
           image={card.image}

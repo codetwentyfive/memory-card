@@ -1,11 +1,15 @@
-import React from 'react';
-import '../styles/Header.css';
+import React from "react";
+import "../styles/Header.css";
 
 const Header = ({ score, highScore }) => {
   return (
     <div className="header">
-      <div>Memory Game</div>
-      <p>Score: {score} | High Score: {highScore}</p>
+      <h1>Memory Game</h1>
+      <div className="scoreboard">
+        <p>
+          Score: {score} | High Score: {highScore}
+        </p>
+      </div>
     </div>
   );
 };

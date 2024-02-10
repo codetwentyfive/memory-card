@@ -1,9 +1,39 @@
+@font-face {
+  font-family: "Title";
+  src: url("/fonts/Yu-Gi-Oh! Matrix Regular Small Caps 2.ttf")
+    format("truetype");
+
+  font-family: "Header";
+  src: url("/fonts/Yu-Gi-Oh! ITC Stone Serif Small Caps Bold.ttf")
+    format("truetype");
+}
+
+* {
+  font-family: "Header";
+}
+body {
+  height: 100vh;
+  background-color: black;
+  background-image: url("/images/backgroundImg.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-position-y: -120px;
+}
+
 .main {
   display: grid;
-  grid-template-columns: repeat(4, 1fr); 
-  gap: 20px; 
-  padding: 20px; 
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  padding: 20px;
+  justify-content: center;
+}
 
+p {
+  font-family: "Title";
 }
 
 /* Media query for screens smaller than 768px */

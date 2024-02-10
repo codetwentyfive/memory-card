@@ -10,6 +10,7 @@ const CardItem = ({ image, title, onClick  }) => {
   const handleCardClick = () => {
     setIsFlipped(!isFlipped);
     onClick();
+
   };
 
   useEffect(() => {
@@ -26,24 +27,29 @@ const CardItem = ({ image, title, onClick  }) => {
   }, [image]);
 
   return (
-    <div className="card-container" onClick={handleCardClick}>
+    <div className="card-full">
+<div className="card-container" onClick={handleCardClick}>
       <div className={`card ${isFlipped ? "flipped" : ""}`}>
         {isLoading ? (
           <div>Loading...</div>
         ) : (
-          <img
-            className="card-face front-face"
-            src={imgSrc}
-            alt={`Card of ${title}`}
-          />
+          <>
+            <img
+              className="card-face front-face"
+              src={imgSrc}
+              alt={`Card of ${title}`}
+            />
+            <img
+              className="card-face back-face"
+              src={cardBackImage}
+              alt="Card Back"
+            />
+          </>
         )}
-        <img
-          className="card-face back-face"
-          src={cardBackImage}
-          alt="Card Back"
-        ></img>
       </div>
     </div>
+        <div className="card-title">{title}</div>
+        </div>
   );
 };
 

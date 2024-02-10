@@ -6,6 +6,9 @@
   font-family: "Header";
   src: url("/fonts/Yu-Gi-Oh! ITC Stone Serif Small Caps Bold.ttf")
     format("truetype");
+    font-family: "Text";
+    src: url("/fonts/Yu-Gi-Oh! ITC Stone Serif LT Italic.ttf")
+      format("truetype");
 }
 
 * {

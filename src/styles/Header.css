@@ -19,14 +19,24 @@ h1 {
   color: white;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
+.rules{
+    color:white;
+    font-family: 'Text';
+}
 .scoreboard {
-  background-color: rgba(225, 27, 49, 0.7);
-  padding: 1em 4em;
-  border-radius: 50%;
+  background-color: rgba(102, 102, 102, 0.685);
+  color: wheat;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  border-radius: 5%;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  padding-left: 10px;
 }
 .highscoreDisplay {
-  color: white;
+  padding-right: 10px;
+
+  color: rgb(255, 255, 255);
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 p {

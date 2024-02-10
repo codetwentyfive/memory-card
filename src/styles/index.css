@@ -12,7 +12,7 @@
   font-family: "Header";
 }
 body {
-  height: 100vh;
+  height: auto;
   background-color: black;
   background-image: url("/images/backgroundImg.jpg");
   background-size: auto;

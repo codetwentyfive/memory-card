@@ -46,9 +46,9 @@ const CardItem = ({ image, title, onClick  }) => {
             />
           </>
         )}
+        <div className="card-title">{title}</div>
       </div>
     </div>
-        <div className="card-title">{title}</div>
         </div>
   );
 };

@@ -1,8 +1,36 @@
-h1{
-    text-align: center;
+.header {
+  position: relative;
 }
-.scoreboard{
-background-color:#e11b31 ;
-padding: 1em 4em ;
-border-radius: 50%;
+.title-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-image: url("/images/titleBackground.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  z-index: -1;
+}
+h1 {
+  text-align: center;
+  color: white;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+.scoreboard {
+  background-color: rgba(225, 27, 49, 0.7);
+  padding: 1em 4em;
+  border-radius: 50%;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+.highscoreDisplay {
+  color: white;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+p {
+  font-size: 1.4em;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+
 }

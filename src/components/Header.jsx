@@ -1,7 +1,12 @@
 import React from "react";
 import "../styles/Header.css";
 
-const Header = ({ score, highScore }) => {
+const Header = ({ score, setScore, highScore, setHighscore }) => {
+  //highscore tracking
+  if (score >= highScore) {
+    setHighscore(score);
+  }
+
   return (
     <div className="header">
       <h1>Memory Game</h1>

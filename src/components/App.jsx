@@ -21,11 +21,12 @@ function App() {
       {showPopup && (
         <DifficultyPopup onSelectDifficulty={handleSelectDifficulty} />
       )}
-      {!showPopup && <Header score={score} highScore={highScore} />}
-      {!showPopup && <Main difficulty={difficulty} score={score} setScore={setScore} />}
+      {!showPopup && <Header score={score} highScore={highScore} setScore={setScore} setHighscore={setHighScore}/>}
+      {!showPopup && (
+        <Main difficulty={difficulty} score={score} setScore={setScore} />
+      )}
     </div>
   );
 }
-
 
 export default App;

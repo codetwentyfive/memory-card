@@ -1,6 +1,9 @@
 .card-full{
 
- 
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ flex-direction: column;
 }
 .card-container {
     width: 200px;
@@ -43,13 +46,15 @@
    
   .card-title{
     z-index: 5;
-    color: #000000;
+    color: #ffffff;
     display: flex;
     font-family: 'Title';
     font-size: 1.2em;
     font-weight: bold;
     background-color: #a67305b4; 
-    border-radius: 10px;
+    border-radius: 4px;
+    padding: 1px 2px;
+    text-align: center;
 
 
   }

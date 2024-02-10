@@ -6,14 +6,21 @@
   font-family: "Header";
   src: url("/fonts/Yu-Gi-Oh! ITC Stone Serif Small Caps Bold.ttf")
     format("truetype");
-    font-family: "Text";
-    src: url("/fonts/Yu-Gi-Oh! ITC Stone Serif LT Italic.ttf")
-      format("truetype");
+  font-family: "Text";
+  src: url("/fonts/Yu-Gi-Oh! ITC Stone Serif LT Italic.ttf") format("truetype");
 }
 
 * {
   font-family: "Header";
 }
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  scroll-behavior: smooth;
+}
+
 body {
   height: auto;
   background-color: black;
@@ -27,6 +34,7 @@ body {
 }
 
 .main {
+  max-width: auto;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 20px;
@@ -34,11 +42,16 @@ body {
   justify-content: center;
 }
 
-
-
-/* Media query for screens smaller than 768px */
-@media screen and (max-width: 768px) {
+/* Media query for screens smaller than 800px */
+@media screen and (max-width: 800px) {
   .main {
-    grid-template-columns: repeat(2, 1fr); /* 2 columns for smaller screens */
+    gap: 40px;
+    grid-template-columns: repeat(
+      2,
+      minmax(100px, 1fr)
+    ); 
+  }
+  .card-full {
+    scale: 0.9;
   }
 }

@@ -1,5 +1,8 @@
 .header {
   position: relative;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
 }
 .title-background {
   position: absolute;
@@ -18,29 +21,34 @@ h1 {
   text-align: center;
   color: white;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+
+}
+.eyeImg {
+  background-image: url("/images/eye.png");
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 2);
+  background-size: contain;
+  position: relative;
+  width: 100vw;
 }
 .rules{
-    color:white;
-    font-family: 'Text';
+    color: white;
 }
+
 .scoreboard {
   background-color: rgba(102, 102, 102, 0.685);
   color: wheat;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+  text-align: center;
   border-radius: 5%;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-  padding-left: 10px;
+  max-width: 200px;
+  align-self: center;
 }
 .highscoreDisplay {
   padding-right: 10px;
-
   color: rgb(255, 255, 255);
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 p {
   font-size: 1.4em;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-
 }

@@ -11,9 +11,10 @@ const Header = ({ score, setScore, highScore, setHighscore }) => {
     <div className="header">
       <h1>Memory Game</h1>
 
-      <p className="rules">RULES:
-        Dont pick the same card twice!</p>
+      <div className="eyeImg">.</div>
       <div className="scoreboard">
+        <p className="rules">RULES:
+        Dont pick the same card twice!</p>
         <p className="scoreDisplay">Score: {score} </p><p className="highscoreDisplay"> High Score: {highScore}</p>
       </div>
     </div>

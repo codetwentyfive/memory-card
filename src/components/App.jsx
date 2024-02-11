@@ -16,6 +16,13 @@ function App() {
     setShowPopup(false);
   };
 
+  //highscore tracking
+  useEffect(() => {
+    if (score >= highScore) {
+      setHighScore(score);
+    }
+  }, [score, highScore]);
+
   return (
     <div className="App">
       {showPopup && (
@@ -28,7 +35,7 @@ function App() {
           score={score}
           highScore={highScore}
           setScore={setScore}
-          setHighscore={setHighScore}
+          setHighScore={setHighScore}
         />
       )}
       {!showPopup && (

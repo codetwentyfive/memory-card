@@ -2,12 +2,10 @@ import { useEffect, useState } from "react";
 import DifficultyPopup from "./DifficultyPopup";
 import Header from "./Header";
 import Main from "./Main";
-import CardItem from "./CardItem";
 import "../styles/App.css";
 function App() {
   const [score, setScore] = useState(0);
   const [highScore, setHighScore] = useState(0);
-  const [cards, setCards] = useState([]);
   const [showPopup, setShowPopup] = useState(true);
   const [difficulty, setDifficulty] = useState(null);
 

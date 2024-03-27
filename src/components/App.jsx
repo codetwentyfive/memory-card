@@ -3,6 +3,7 @@ import DifficultyPopup from "./DifficultyPopup";
 import Header from "./Header";
 import Main from "./Main";
 import "../styles/App.css";
+import 'tailwindcss/tailwind.css';
 function App() {
   const [score, setScore] = useState(0);
   const [highScore, setHighScore] = useState(0);

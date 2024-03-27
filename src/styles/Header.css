@@ -1,5 +1,4 @@
 .header {
-  position: relative;
   width: 100vw;
   display: flex;
   flex-direction: column;
@@ -17,12 +16,8 @@
   background-position: center;
   z-index: -1;
 }
-h1 {
-  text-align: center;
-  color: white;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 
-}
+
 .eyeImg {
   background-image: url("/images/eye.png");
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 2);

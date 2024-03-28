@@ -4,22 +4,27 @@ import "../styles/Header.css";
 const Header = ({ score, highScore }) => {
   return (
     <div className="header">
-      <div className="flex self-center justify-center items-center ">
-        <img
-          src="/images/logo.png"
-          alt="Logo"
-          className="h-[250px] top-0 left-0 relative"
-        />
-
-        <h1 className="text-white text-4xl font-bold"> Memory Game</h1>
+      <div className="flex flex-row justify-between items-center">
+        <div className="flex justify-center items-center">
+          <img
+            src="/images/logo.png"
+            alt="Logo"
+            className="h-[20vh] md:h-[20vh]"
+          />
+          <h1 className="text-white text-2xl md:text-4xl font-bold ">
+            Memory Game
+          </h1>
+        </div>
+        <div className="bg-[#b82882] rounded-2xl p-2 flex flex-row items-center">
+          <p className="text-white font-bold">Score: {score} </p>
+          <span> | </span>
+          <p className="font-bold text-white"> High Score: {highScore}</p>
+        </div>
       </div>
-
       <div className="eyeImg">.</div>
-      <div className="scoreboard">
-        <p className="rules">RULES: Dont pick the same card twice!</p>
-        <p className="scoreDisplay">Score: {score} </p>
-        <p className="highscoreDisplay"> High Score: {highScore}</p>
-      </div>
+      <p className="self-center text-white bg-slate-600 rounded-2xl p-2 ">
+        RULES: Dont pick the same card twice!
+      </p>
     </div>
   );
 };

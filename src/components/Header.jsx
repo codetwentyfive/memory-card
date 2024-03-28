@@ -4,7 +4,7 @@ import "../styles/Header.css";
 const Header = ({ score, highScore }) => {
   return (
     <div className="header">
-      <div className="flex flex-row justify-between items-center">
+      <div className="flex flex-row justify-between items-center px-4">
         <div className="flex justify-center items-center">
           <img
             src="/images/logo.png"
@@ -15,16 +15,19 @@ const Header = ({ score, highScore }) => {
             Memory Game
           </h1>
         </div>
-        <div className="bg-[#b82882] rounded-2xl p-2 flex flex-row items-center">
-          <p className="text-white font-bold">Score: {score} </p>
+        <div className="bg-gradient-to-r from-[#b92880] to-pink-500 rounded-2xl p-2 flex flex-row items-center ">
+          <p className="text-white font-semibold">
+            Score: <span>{score}</span>{" "}
+          </p>
           <span> | </span>
-          <p className="font-bold text-white"> High Score: {highScore}</p>
+          <p className=" text-white font-semibold">
+            {" "}
+            High Score: <span>{highScore}</span>{" "}
+          </p>
         </div>
       </div>
       <div className="eyeImg">.</div>
-      <p className="self-center text-white bg-slate-600 rounded-2xl p-2 ">
-        RULES: Dont pick the same card twice!
-      </p>
+ 
     </div>
   );
 };

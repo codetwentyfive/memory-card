@@ -28,7 +28,7 @@ const CardItem = ({ image, title, onClick  }) => {
 
   return (
     <div className="card-full">
-<div className="card-container" onClick={handleCardClick}>
+<div className="card-container cursor-pointer" onClick={handleCardClick}>
       <div className={`card ${isFlipped ? "flipped" : ""}`}>
         {isLoading ? (
           <div>Loading...</div>

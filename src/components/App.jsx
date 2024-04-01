@@ -24,22 +24,19 @@ function App() {
 
   return (
     <div className="App">
-      {showPopup && (
-        <DifficultyPopup onSelectDifficulty={handleSelectDifficulty} />
-      )}
+
       <div className="title-background"></div>
 
-      {!showPopup && (
         <Header
           score={score}
           highScore={highScore}
           setScore={setScore}
           setHighScore={setHighScore}
         />
-      )}
-      {!showPopup && (
         <Main difficulty={difficulty} score={score} setScore={setScore} />
-      )}
+        
+    
+      
     </div>
   );
 }

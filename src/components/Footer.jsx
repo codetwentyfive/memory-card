@@ -1,14 +1,24 @@
-import { useState } from "react";
+import { useEffect, useState, useRef } from "react";
+import audio from "../assets/audio.mp3";
 import audioOnImg from "/images/audio.png";
 import audioOffImg from "/images/audio-off.png";
 
 const Footer = () => {
   const [isMusicOn, setIsMusicOn] = useState(true);
-
+  const audioRef = useRef(new Audio(audio));
+  audioRef.current.volume = 0.4;
+  audioRef.current.loop = true;
   const toggleMusic = () => {
     setIsMusicOn((prevState) => !prevState);
   };
-
+  useEffect(() => {
+    if (isMusicOn) {
+      audioRef.current.play();
+    }
+    return () => {
+      audioRef.current.pause();
+    };
+  }, [isMusicOn]);
   return (
     <footer className=" text-white">
       <div className="footerContainer py-4 px-8">

@@ -4,8 +4,8 @@ import "../styles/Header.css";
 const Header = ({ score, highScore }) => {
   return (
     <div className="header">
-      <div className="flex flex-row justify-between items-center px-4">
-        <div className="flex justify-center items-center">
+      <div className="flex flex-col md:flex-row justify-between items-center px-10 md:px-4">
+        <div className="flex justify-center self-center items-center">
           <img
             src="/images/logo.png"
             alt="Logo"

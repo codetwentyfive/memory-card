@@ -12,12 +12,16 @@ const Footer = () => {
     setIsMusicOn((prevState) => !prevState);
   };
   useEffect(() => {
+    audioRef.current.play(); 
+  }, []);
+  
+  useEffect(() => {
     if (isMusicOn) {
-      audioRef.current.play();
+      audioRef.current.currentTime = 0; 
+      audioRef.current.play(); 
+    } else {
+      audioRef.current.pause(); 
     }
-    return () => {
-      audioRef.current.pause();
-    };
   }, [isMusicOn]);
   return (
     <footer className=" text-white">

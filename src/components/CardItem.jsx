@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
 import "../styles/CardItem.css";
+import clickSound from "../assets/clickSound.mp3";
 import cardBackImage from "../../public/images/cardback.jpg";
 
-const CardItem = ({ image, title, onClick  }) => {
+const CardItem = ({ image, title, onClick }) => {
   const [isLoading, setIsLoading] = useState(true);
   const [imgSrc, setImgSrc] = useState("");
   const [isFlipped, setIsFlipped] = useState(false);
@@ -10,9 +11,12 @@ const CardItem = ({ image, title, onClick  }) => {
   const handleCardClick = () => {
     setIsFlipped(!isFlipped);
     onClick();
-
+    playClickSound();
   };
-
+  const playClickSound = () => {
+    const audio = new Audio(clickSound);
+    audio.play();
+  };
   useEffect(() => {
     const loadImage = () => {
       const img = new Image();
@@ -28,28 +32,28 @@ const CardItem = ({ image, title, onClick  }) => {
 
   return (
     <div className="card-full">
-<div className="card-container cursor-pointer" onClick={handleCardClick}>
-      <div className={`card ${isFlipped ? "flipped" : ""}`}>
-        {isLoading ? (
-          <div>Loading...</div>
-        ) : (
-          <>
-            <img
-              className="card-face front-face"
-              src={imgSrc}
-              alt={`Card of ${title}`}
-            />
-            <img
-              className="card-face back-face"
-              src={cardBackImage}
-              alt="Card Back"
-            />
-          </>
-        )}
-        <div className="card-title">{title}</div>
+      <div className="card-container cursor-pointer" onClick={handleCardClick}>
+        <div className={`card ${isFlipped ? "flipped" : ""}`}>
+          {isLoading ? (
+            <div>Loading...</div>
+          ) : (
+            <>
+              <img
+                className="card-face front-face"
+                src={imgSrc}
+                alt={`Card of ${title}`}
+              />
+              <img
+                className="card-face back-face"
+                src={cardBackImage}
+                alt="Card Back"
+              />
+            </>
+          )}
+          <div className="card-title">{title}</div>
+        </div>
       </div>
     </div>
-        </div>
   );
 };
 

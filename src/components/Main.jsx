@@ -6,7 +6,7 @@ import LoseScreen from "./LoseScreen";
 const Main = ({ difficulty, score, setScore }) => {
   const [cards, setCards] = useState([]);
   const [clickedCards, setClickedCards] = useState([]);
-  const [showLoseScreen, setShowLoseScreen] = useState(false);
+  const [isGameOver, setIsGameOver] = useState(false);
 
   useEffect(() => {
     async function fetchCards() {
@@ -16,19 +16,6 @@ const Main = ({ difficulty, score, setScore }) => {
     }
     fetchCards();
   }, []);
-
-  useEffect(() => {
-    if (score === 0) {
-      // If score reaches zero, show the lose screen
-      setShowLoseScreen(true);
-    }
-  }, [score]);
-
-  const restartGame = () => {
-    setScore(0);
-    setClickedCards([]);
-    setShowLoseScreen(false); // Hide the lose screen when restarting the game
-  };
 
   // function to spawn cards based on difficulty
   const selectCardsByDifficulty = (difficulty) => {
@@ -68,10 +55,12 @@ const Main = ({ difficulty, score, setScore }) => {
       return shuffledCards;
     });
   };
+
   //function to handle Card Click
   const handleCardClick = (card) => {
     if (clickedCards.includes(card.name)) {
       //gameover when card is already been clicked
+      setIsGameOver(true);
       setScore(0);
       setClickedCards([]);
     } else {
@@ -85,7 +74,6 @@ const Main = ({ difficulty, score, setScore }) => {
 
   return (
     <div className="main">
-      {showLoseScreen && <LoseScreen restartGame={restartGame} />}
       {displayedCards.map((card, index) => (
         <CardItem
           key={index}
@@ -94,6 +82,7 @@ const Main = ({ difficulty, score, setScore }) => {
           onClick={() => handleCardClick(card)}
         />
       ))}
+      {isGameOver && <LoseScreen restartGame={() => setIsGameOver(false)} />}
     </div>
   );
 };

@@ -4,6 +4,8 @@ import Header from "./Header";
 import Main from "./Main";
 import "../styles/App.css";
 import Footer from "./Footer";
+import RulesPopup from "./RulesPopup";
+
 import "tailwindcss/tailwind.css";
 function App() {
   const [score, setScore] = useState(0);
@@ -34,7 +36,7 @@ function App() {
         setHighScore={setHighScore}
       />
       <Main difficulty={difficulty} score={score} setScore={setScore} />
-
+      <RulesPopup />
       <Footer />
     </div>
   );

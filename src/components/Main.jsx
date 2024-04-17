@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from "react";
 import "../styles/index.css";
 import CardItem from "./CardItem";
+import LoseScreen from "./LoseScreen";
 
 const Main = ({ difficulty, score, setScore }) => {
   const [cards, setCards] = useState([]);
   const [clickedCards, setClickedCards] = useState([]);
+  const [showLoseScreen, setShowLoseScreen] = useState(false);
 
   useEffect(() => {
     async function fetchCards() {
@@ -14,6 +16,19 @@ const Main = ({ difficulty, score, setScore }) => {
     }
     fetchCards();
   }, []);
+
+  useEffect(() => {
+    if (score === 0) {
+      // If score reaches zero, show the lose screen
+      setShowLoseScreen(true);
+    }
+  }, [score]);
+
+  const restartGame = () => {
+    setScore(0);
+    setClickedCards([]);
+    setShowLoseScreen(false); // Hide the lose screen when restarting the game
+  };
 
   // function to spawn cards based on difficulty
   const selectCardsByDifficulty = (difficulty) => {
@@ -70,6 +85,7 @@ const Main = ({ difficulty, score, setScore }) => {
 
   return (
     <div className="main">
+      {showLoseScreen && <LoseScreen restartGame={restartGame} />}
       {displayedCards.map((card, index) => (
         <CardItem
           key={index}

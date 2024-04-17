@@ -16,12 +16,12 @@ const LoseScreen = ({ restartGame }) => {
   }, []);
 
   return (
-    <div className="fixed top-0 left-0 w-full h-full flex justify-center items-center z-50">
+    <div className=" rounded-lg fixed top-0 left-0 w-full h-full flex justify-center items-center z-50">
       <div className="rounded-lg shadow-lg overflow-hidden">
         <img
           src={defeatImage}
           alt="Defeat"
-          className="w-full h-auto object-cover"
+          className="w-full h-auto object-cover rounded-3xl"
         />
         <div className="absolute inset-0 flex flex-col justify-center items-center text-center">
           <h2 className="text-3xl font-bold text-red-500 mb-4">
@@ -29,7 +29,7 @@ const LoseScreen = ({ restartGame }) => {
           </h2>
           <button
             onClick={restartGame}
-            className="bg-red-500 text-white px-4 py-2 rounded-md font-semibold hover:bg-red"
+            className="bg-red-500 text-white px-4 py-2 rounded-xlfont-semibold hover:bg-red"
           >
             Restart
           </button>
